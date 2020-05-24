@@ -16,7 +16,10 @@ function acquire() {
   if (objects.length + 1 > maxSize) {
     throw new Error(`Pool capacity exceeded`);
   }
-  const newObject = new PoolObject();
+  let newObject = objects.find(obj => used.indexOf(obj) < 0);
+  if (!newObject) {
+    newObject = new PoolObject();
+  }
   objects.push(newObject);
   used.push(newObject);
   return newObject;

@@ -1,4 +1,9 @@
-class HumanFootman {}
+class HumanFootman {
+  move() {}
+  attack() {}
+  defend() {}
+  die() {}
+}
 class HumanArcher {}
 
 class HumanFactory {
@@ -48,11 +53,12 @@ class Player {
 
 const humanFactory = new HumanFactory();
 const orcFactory = new OrcFactory();
+const elfPlayer = new ElfFactory();
 
 // inicjalizacja
 
 const player1 = new Player(humanFactory);
-const player2 = new Player(orcFactory);
+const player2 = new Player(elfFactory);
 
 // ten kod rowniez nie zalezy od typow jednostek
 

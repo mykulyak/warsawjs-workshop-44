@@ -1,17 +1,19 @@
-class HeavyObject {
-  constructor() {
-    this.data = new Array(1000000).fill(3);
-  }
-}
-
+let factory = null;
 let instance = null;
 
+function initialize(value) {
+  if (factory) {
+    throw new Error('Already initialized');
+  }
+  factory = value;
+}
+
 function getInstance() {
-  
   if (!instance) {
-    instance = new HeavyObject();
+    instance = factory();
   }
   return instance;
 }
 
-module.exports = getInstance;
+exports.initialize = initialize;
+exports.getInstance = getInstance;

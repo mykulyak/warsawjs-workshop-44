@@ -20,6 +20,18 @@ class BicycleAdapter extends Bicycle {
   }
 }
 
+class BicycleAdapter2 {
+  constructor(impl) {
+    this.impl = impl;
+  }
+  ride() {
+    this.impl.ride();
+  }
+  tank() {
+    console.log('Jemy batonik energetyczny');
+  }
+}
+
 // uzycie
 
 function tripThereAndBack(vehicle) {
@@ -40,3 +52,6 @@ try {
 
 console.log('--- Podroz rowerem - v2');
 tripThereAndBack(new BicycleAdapter());
+
+console.log('--- Podroz rowerem - v3');
+tripThereAndBack(new BicycleAdapter2(new Bicycle()));
